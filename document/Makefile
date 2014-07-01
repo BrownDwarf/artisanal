@@ -8,14 +8,14 @@ all: ms.pdf
 	bibtex ms
 	pdflatex ms
 	pdflatex ms
-	git show HEAD~1:ms.tex >> ms_diff.tex
+	git show HEAD~1:./ms.tex >> ms_diff.tex
 	mv ms.pdf final/
 	mv ms.tex final/
 	rm -rf *Notes.bib
 	rm -rf *.log
+	rm -rf *.bbl
 	rm -rf *.blg
 	rm -rf *.dvi
-	git show HEAD~1:ms.tex >> ms_diff.tex
 	latexdiff ms_diff.tex final/ms.tex > ms.tex
 	rm -rf ms_diff.tex
 	pdflatex ms
@@ -27,6 +27,7 @@ all: ms.pdf
 	rm -rf *.aux
 	rm -rf *.log
 	rm -rf *.blg
+	rm -rf *.bbl
 	rm -rf *.dvi
 	mv ms.pdf diff.pdf
 	cp final/ms.tex .
