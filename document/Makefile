@@ -8,6 +8,7 @@ all: ms.pdf
 	bibtex ms
 	pdflatex ms
 	pdflatex ms
+	git show HEAD~1:ms.tex >> ms_diff.tex
 	mv ms.pdf final/
 	mv ms.tex final/
 	rm -rf *Notes.bib
