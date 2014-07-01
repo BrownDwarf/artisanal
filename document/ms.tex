@@ -1,0 +1,303 @@
+\documentclass[12pt,preprint]{aastex}
+\citestyle{aa}
+\usepackage{graphicx,color}
+\usepackage{comment}
+%\usepackage{graphicx}
+%\usepackage[]{natbib}
+\slugcomment{\bf August 2013 draft}
+\shortauthors{Gully-Santiago \emph{et al.}}
+\shorttitle{Characterization of Young Brown Dwarfs}
+
+\begin{document}
+
+\newcommand{\angstrom}{\mbox{\normalfont\AA}}
+\newcommand{\Ks}{\mbox{$K_S$}}
+\newcommand{\mbol}{\mbox{$m_{\rm{bol}}$}}
+\newcommand{\degs}{\mbox{$^{\circ}$}}
+\newcommand{\perpix}{\mbox{pixel$^{-1}$}}
+\newcommand{\mjup}{\mbox{$M_{\rm{Jup}}$}}
+\newcommand{\etal}{et al.}
+\newcommand{\eg}{e.g.}
+\newcommand{\ie}{i.e.}
+\newcommand{\htwoo}{{\hbox{H$_2$O}}}   % H20
+\newcommand{\Msun}{\ensuremath{\M_{\odot}}}
+\newcommand{\mum}{${\rm \mu m \;}$}
+\newcommand{\dg}{$^\circ$ } 
+\newcommand{\um}{$\mu$m} 
+\newcommand\ions[2]{#1$\;${\scshape{#2}}}%
+
+
+\def\substitute@option#1#2{%
+ \ClassWarning{aastex}{%
+  Substyle #1 is deprecated in aastex.
+  Using #2 instead (please fix your document).
+ }\@nameuse{ds@#2}%
+}%
+\newcommand\ionscript[2]{#1$\;${\tiny\rmfamily{#2}}\relax}%
+\newcommand\ionfootnote[2]{#1$\;${\scriptsize\rmfamily{#2}}\relax}%
+
+
+\title{Detailed Characterization of Young Brown Dwarfs with Disks}
+
+\author{M. A. Gully-Santiago, D. T. Jaffe}
+\affil{Department of Astronomy, University of Texas at Austin, Austin, TX 78712, USA; gully@astro.as.utexas.edu}
+
+\author{K.~N.~Allers\altaffilmark{1}}
+\affil{Department of Physics and Astronomy, Bucknell University, Lewisburg, PA 17837, USA; k.allers@bucknell.edu}
+
+
+\altaffiltext{1}{Visiting Astronomer at the Infrared Telescope Facility,
+  which is operated by the University of Hawaii under Cooperative
+  Agreement No. NCC 5-538 with the National Aeronautics and Space
+  Administration, Office of Space Science, Planetary Astronomy Program.}
+
+
+
+
+%------------------------------------------------------------
+%Section 0- Introduction
+%------------------------------------------------------------
+
+
+\begin{abstract}
+This work spectroscopically confirms 17 candidate young stellar and substellar objects in nearby star forming regions from the sample of \citet{allers06}.  We base our classification on $R=1200$ near-IR spectroscopy, $R=90$ mid-IR spectroscopy, and IJHK$_S$ and mid-IR photometry.  The sources' spectral types range from M2$-$L2.5, which corresponds to effective temperatures $1900 < T_{eff} < 3500 \rm \,K $ with derived luminosities $ -3.3 < \log{L_{\sun}} < -0.5$.  We exploit the derived central object properties and the new mid-IR observations in models of passively irradiated circumstellar disks to estimate disk properties like the inner disk dust radius.  For some of our sources disk flux at $\lambda \lesssim 6$ \mum cannot be reliably distinguished from the underlying stellar photosphere, which we attribute to a radiative transfer effect \citep{ercolano09} of the small emitting area of the inner dust wall.  The mid-IR spectra reveal grain growth and dust settling as quantified by the strength and shape of the 10 \mum silicate feature.  The shape and strength of the 10 \mum feature is similar to those observed in higher mass T-Tauri stars.  Only one source (AKCJ1622$-$2340) has mid-IR flux rising with wavelength, while the others have only weak mid-IR excess suggestive of flattened disk geometries.  We detect $Pa\beta$, $Br\gamma$, and/or other accretion diagnostic lines in the near-IR spectra of 6/19 objects, and place upper limits for the others.  The derived mass accretion rates are highly uncertain, since they depend on the stellar evolutionary model derived mass and radius.  Our lowest luminosity and lowest effective temperature sources taken in aggregate extend the previously known $\dot{M}\propto M_{*}^{2}$ trend another decade in $M_{*}$ below T-Tauri star masses.  The observed properties of young brown dwarfs are consistent with models of scaled down T-Tauri stars, consistent with a common formation mechanism.
+\end{abstract}
+%------------------------------------------------------------------------------------------------
+
+\keywords{brown dwarfs -infrared:stars - planets and satellites: atmospheres - stars:low-mass}
+%------------------------------------------------------------
+%Section 1
+%------------------------------------------------------------
+\section{Introduction}
+Young brown dwarf candidates were first discovered and spectroscopically confirmed in Orion \citep{hillenbrand97}, $\rho$ Oph \citep{luhman97}, IC348 \citep{luhman99}, Taurus \citep{briceno98}, Chamaeleon I \citep{comeron99}, and TW Hydrae \citep{2000A&A...360L..39N}, among other nearby star forming regions.  Recent studies have identified ultracool (M7 and later) members of young clusters \citep{luhman05, allers07, mohanty07, catarina12}.  The $\sim$ few$-80 M_{Jup}$ mass range of brown dwarfs extends the mass range over which star formation has been observed to 4 orders of magnitude in mass.  Some observational evidence and formation theory suggests that brown dwarfs are simply scaled down versions of their higher mass T-Tauri star counterparts.  This similarity manifests itself through a number of characteristics.  Young brown dwarfs often harbor optically thick protoplanetary disks \citep{apai05, pascucci09}, sometimes exhibit outflows \citep{whelan05, whelan09}, and appear to undergo a phase of continued, albeit weak, accretion \citep{natta04, gatti06, gatti08, comeron10, rigliaco11, rigliaco11_uband, mohanty05, herczeg09}.  
+
+	\subsection{Scientific themes }
+		\subsubsection{Nature of the photospheres}		
+
+Stellar and substellar evolutionary models \citep{baraffe98, chabrier00, baraffe03} for young (1$-$3 Myr)  brown dwarfs in the mass range 5-75 $M_{Jup}$ have cool photospheres in the effective temperature range 3000$-$1600 K.  This effective temperature range corresponds to spectral types later than M6 assuming the $T_{eff}$-spectral type relation of \citet{luhman03}.  It is difficult to directly measure mass.  Evolutionary tracks and observational uncertainties conspire to yield large uncertainties on masses derived from pre-mass sequence evolutionary models.  Accordingly there are not and many strong candidates for a purported observed ``lowest mass brown dwarf''.  Only a few sources with spectral types later than L0 have been confirmed in nearby star forming clusters \citep{Catarina13}.  Brown dwarfs contract and cool monotonically, and their spectral characteristics will transition along the established L-T-Y spectral sequence\citep{2005ARA&A..43..195K}.  This sequence is characterized in the near-IR by $H_2O$ bands, CO, FeH, and neutral alkali metals defining L-dwarf spectra.  The appearance of methane is the hallmark signature of T-dwarfs; to date 5 young brown dwarf candidates have shown evidence for methane \citep{marsh10, 2012arXiv1208.0702S,2011A&A...532A..42P}, but firm spectroscopic confirmation is still lacking.
+
+Extensive studies of thousands of sources exist for old, high-gravity field M- and L- dwarfs in the optical \citep{west08, 2010AJ....139.1808S}, and tens in the near-IR \citep{cushing05, rayner09}.  Optical \citep{luhmanxx, cruzxx} and near-IR \citep{allers06, 2008MNRAS.383.1385L, catarina12} observations of young clusters and young field population have filled in low and intermediate gravity sources establishing the gravity sensitive spectral features.  The near-IR  is the best place to study the whole mass and age range- owing to high obscuration in young regions, the $>1$ \mum peak of the substellar emission, and less sensitivity to star-spot induced variations in these magnetically active sources \citep{johns-krull, prato}.
+
+Near-IR spectral type indicators are typically benchmarked to optical spectral types of prototypical systems \citep{cushing05, rayner09, luhmanxx, allers07}, but differences in optical and near-IR spectra can exist \citep{kirkpatrick05}.  Low resolution ($R\sim100$) spectroscopy is sufficient to provide spectral classification \citep{allers07, dwarfarchives.com}.  Surface gravity affects the H$-$band slope evident at low resolution \citep{allersxx}, but other indicators like weak neutral alkali lines can be better detected in moderate resolution ($R\sim1000$) spectroscopy.  Gravity differences between Taurus ($\sim$1 Myr) and Upper Scorpius ($\sim$5 Myr) are distinguishable in the $R\sim2000$ near-IR spectra of OPH1622-2405A \citep{luhman07}, which can help to identify interlopers in our sample.  This work focuses on a homogeneously selected sample of 18 young sources from M2$-$L2.  
+
+		\subsubsection{	Disk geometry/heating}
+The \emph{Spitzer Space Telescope} \citep{werner04} and the c2d Legacy Program \citep{evans03} targeted known regions of star formation with mid-IR photometry and spectroscopy in the range $3.6 < \lambda < 40$ \mum, resulting in sensitive observations of many circumstellar disks around young stellar objects.  One observational difference that has emerged between brown dwarfs and their solar mass counterparts is the color distributions of their disks.  Specifically, the mid-IR excess is weaker for YBDs than T-Tauri stars \citep{szucs10}.  The conspicuous near-IR excess often observed in T-Tauri and Herbig Ae/Be stars \citep{2011ARA&A..49...67W} is difficult to distinguish in the SEDs of VLM sources \citep{ercolano09, mayne10}.  This work approached the mid-IR properties of VLM sources through (1) our spectral classification to constrain the central object $T_{eff}$, and (2) our mid-IR photometry and spectroscopy providing continuous wavelength coverage from 2.5 \mum  to 24 \mum.
+		\subsubsection{	Nature of the dust in disks}
+\citet{apai05} observed the 10 micron silicate emission feature in a small sample of disks around young brown dwarfs and found that the strength of the feature is lower on average in brown dwarfs than in their higher mass T-Tauri star and Herbig AeBe star YSO counterparts.  Furthermore, the authors found the 11.3/9.8 \mum flux ratio was on average higher than in the typical YSO disk.  These trends were later strengthened with more sources and other studies\citep{pascucci09, 2010ApJS..188...75M, 2011ApJS..195....3F, 2009ApJ...701..571R, 2011arXiv1111.4480R}.
+
+		\subsubsection{	Accretion rates and disk lifetimes}
+
+There is a building consensus that mass accretion rate scales with central object mass as some power law in mass: $\dot{M} \propto m^{\alpha} $, with $1<\alpha<3$ \citep{2002A&A...393..597N, gatti06}.  \citet{2012ApJ...755..154M} have use the \emph{Hubble Space Telescope} to fit for the mass accretion rate dependence on both stellar mass and stellar age.  \citet{haisch01} derived a half life for disk dispersal of 3 Myr.  \cite{kraus12} distinguished the accelerated evolution of disks around close binaries to conclude a disk lifetime of 3-5 Myr.  The disk fraction and implied lifetime for brown dwarfs in the 10 Myr TW Hydra association appears to be higher than their higher mass counterparts \citep{2009ApJ...701..571R}, suggesting a mass dependence in disk dispersal mechanism.  Our sample consists of a sources with a broad range of low masses but similar ages.  We can look for accretion rate differences as a function of mass within our sample, specifically in the spectra of the few very low mass sources we have detected.
+	\subsection{	Source selection }
+		\subsubsection{	Facts about the clouds}
+We have constructed a sample of very low mass stars and brown dwarfs by incorporating deep photometric surveys of portions of three nearby star forming regions.  Our sample is from \citet{allers06}, who imaged 1.6 square degrees of Oph, Lup I, and Cha II in IJHK.  The targeted regions had $A_V < 7.5$ to permit the use of $I-$band data and to minimize the uncertainties in fluxes resulting from extinction.  We adopt a distance of 120 pc to our Ophiuchus sample based on the distance derived for the Ophiuchus core \citep{loinard08} from VLBA measured parallaxes.  Distances to \emph{Hipparcos}-measured stellar Ophiuchus members associated with reflection nebulae \citep{mamjek08} yield a distance of 131$\pm$3 pc.  It is conceivable that some of our sources in the direction of Ophiuchus are members of the older (5$-$11 Myr, \citep{preibisch02, pecaut12}) and more distant (145 $\pm$ 2 pc, \citep{dezeeuw99}) Upper Scorpius star forming complex; we address the membership of sources in Section x.x.x.  Ages of stellar-mass Ophiuchus YSOs derived from evolutionary model tracks range from 0.1-3.1 Myr\citep{luhmanrieke99, erickson11}.  We therefore adopt an age of 1 Myr for our Ophiuchus sample.  We adopt a distance X and age Y for Lupus I, which is based on the comparison of evolutionary models of stellar members summarized in \citet{comeron08}.  We adopt a distance to and age of Cha II 178 pc and 3 Myr respectively, based on the derived properties of stellar members of Cha II \citep{luhman08}.
+		\subsubsection{	How we cut the sample}
+		Allers et al. selected the base sample from the photometric catalog using a series of color-color and color magnitude cuts based on their IJHK observations and on IRAC 1-4 photometry from c2d \citep{evans03}.  These color-color and color-magnitude cuts selected for late-type objects (M3 or later).  The initial selection using IJHK and IRAC 1 colors reduced the original catalog of 120,000 >5$\sigma$ IJHK sources to a still unmanageable 12,000 potential late-type objects.  Since the embedded YSOs in all three regions are $\lesssim$ 3 million years old, a reasonable fraction of the brown dwarfs should have substantial inner disks \citep{luhman10}.  Allers et al. therefore focused on low mass objects with disks by searching for 5.8 and 8.0 $\mu$m excesses and then removing possible galaxies by excluding objects resolved at 0.8-2.2 $\mu$m.   This last set of cuts produced the final catalog of 19 sources.  Subsequent work \citep{allers07, rayjay06, close07, luhman07, allen07}, has confirmed seven of these candidates as bona fide low mass stars and brown dwarfs.  Four of these objects have luminosity $\sim 10^-3 L_{\sun}$ and may have masses less than 20 $M_{Jup}$ \citep{allers06}.
+		
+		%--------------------------------------------------------
+		%		New- November 24, 2012
+		%			 January 27, 2013
+\subsection{Comparison sample}		
+		%--------------------------------------------------------
+		We constructed a comparison sample of very low mass stars and brown dwarfs.  The comparison sample contains \#\#\# sources; 259 are from the inventory\footnote{\url{https://www.cfa.harvard.edu/~tdupuy/plx/}} of all ultracool dwarfs (late-M, L, T, and Y dwarfs) \citep{2012ApJS..201...19D}.  The Dupuy and Liu compilation mostly serves as an older field dwarf comparison sample with which we may determine intrinsic optical to mid-IR colors.  Notably their inventory includes some young objects in TWA, and sources with peculiar spectra including indications of low gravity.  The other ( \#\# number) sources are from studies of nearby star forming clusters, specifically 19 from Cha \citep{2009ApJ...696..143P}, 35 from Upper Sco \citep{2007ApJ...660.1517S}, 161 from Taurus \citep{2011ApJS..195....3F}, 135 from Oph \citep{2010ApJS..188...75M}, 31 from IC348 \citep{2013A&A...549A.123A}....  In this section we describe how we assembled the comparison sample.
+	
+	\subsubsection{ \citep{2013A&A...549A.123A} }  %Catarina Alves de Oliveira et al. 2013.
+This recent paper used WIRCam and MegaCam at the CFHT to select a sample of 31 young brown dwarf photometric candidates.  Their OSIRIS/GTC and GNIRS/Gemini spectroscopy confirmed 16 of the 31 sources as likely young brown dwarf members of the cluster.  We included the  JHK photometry from their Table 2 as 2MASS photometry in our database.  We justified merging the photometry in this way because \citet{2013A&A...549A.123A} calibrated their photometry to the 2MASS system.   The authors reported a mean magnitude difference between the CFHT Vega system and 2MASS system equal to 0.06, 0.03, and 0.07 in $J-$, $H-$, and $K-$ bands respectively; we add this error in quadrature to the 0.05 magnitude zero-point error reported in their Table 2.  Adding the errors in this way likely overestimates the uncertainty in the photometry, but we decided it was important to keep the large error for comparison to the other sources in our comparison sample for which data is strictly on the 2MASS system.  We double-checked the error estimate by inspecting the photometry of those sources which had matches in 2MASS.  We found the average photometric differences to be consistent with the reported errors.  \citep{2013A&A...549A.123A} report $z'$ photometry from MegaCam.  We included the $z'$ photometry in our SDSS photometry database, rather than the $Z$ MKO photometry.  We queried several photometric databases to see if the sources in \citep{2013A&A...549A.123A} we detected in other projects.  This region was too far north to be surveyed by DENIS.  This region was targeted in UKIDSS, and UKIDSS has the depth to pick up these sources, however at the time of writing only UKIDSS data release 4 is available to the global community.  We did not bother looking in DR4.  We did not find the IC348 sources in SDSS DR8.  Thirteen entries were matched within 3 arcseconds of sources detected in WISE.  Three sources were detected in WISE band 3 and only one source was detected in WISE band 4.
+		
+	\subsection{	Source description}
+		\subsubsection{	Multiplicity}
+We have detected close companions to two sources in our sample: Oph1622$-$2405 and Oph1623$-$2402 with separations $1\farcs9$ and $1\farcs7$ respectively \citep{allers05phd, allers06, allers07, close07, luhman07}.  Common proper motion analysis implies that both Oph1622$-$2405AB and Oph1623$-$2402AB are likely bound common proper motion systems \citep{close07}.  We detect no other companions, and we would have been sensitive to $\Delta \rm{J} =0$ at $0\farcs 0$, and $\Delta \rm{J} =0$ at $0\farcs 0$.
+		\subsubsection{	Range of luminosities, extinctions}
+Table 5 of Allers et al. lists the extinction and luminosities, derived Av from 0 to 13 magnitudes.  Derived luminosities ranged from $-3.1 < \log{L/L_\sun} < +0.5$, five sources have $\log{L/L_\sun} \sim -3$.
+		%extinction intrinsic to source?
+
+%------------------------------------------------------------
+%Section 2
+%------------------------------------------------------------
+
+\section{	Observations and data used}
+\emph{\textcolor{red}{Put observing log/info here}}
+	\subsection{	SpeX and GNIRS}
+\emph{\textcolor{red}{Discussion of the shape of the GNIRS spectra- comparison figure of the SpeX prism mode	}}
+	
+We obtained near-IR (0.9-2.5 $\mu$m) spectra for all objects in the sample except the most luminous object, CHA1300$-$7714, likely spectral type earlier than M0.  Both components of the known companions Oph1622$-$2405 and Oph1623$-$2402 were observed.  Spectra were taken on the nights of 2006 June 22 \& 23 and July 19 using the SpeX instrument \citep{rayner03} on the NASA Infrared Telescope Facility (IRTF) on Mauna Kea, Hawaii.  GNIRS \citep{elias06} spectra were obtained in queue-scheduled mode on the Gemini-South Telescope on 2006 February 10, 11, \& 12; March 25; and April 1, 21, \& 22.  SpeX spectra were reduced with the Spextool package \citep{cushing04, vacca03}. GNIRS spectra were reduced with a custom adaptation of the Spextool package for GNIRS.  The reduction strategies employed \emph{xtellcorr} \citep{vacca03} for correction for telluric absorption.  
+%TODO: Resolving Power, wavelength range, flux calibration, accuracy, flattening, etc.
+	\subsection{	IRS}
+We used Spitzer IRS \citep{houck04} to obtain mid-IR spectra.  All sources were detected in IRS Short-Low (SL).  Numbers 2, 6, 7, 9, 13, and 14 were observed by c2d, and the others were observed under program 30409.  The c2d team additionally observed sources 2 and 9 at long low (LL), and those that were bright enough (sources 4, 6, 7, 8, 10, 13, 15, 16, 19) were also observed under program 30409 at LL.  The spectra were reduced with the software package SMART \citep{higdon04}, using a the IRSclean procedure to eliminate most bad pixels.  Further bad pixel mitigation was not performed.  The SL LL spectra were normalized to match the [8.0] IRAC and MIPS24 photometry by convolving the spectrum with the filter response curves. 
+		\subsubsection{	10 um feature (unsmoothed data)}
+We downloaded \emph{Spitzer} IRS enhanced data products from the Spitzer Science Center's (SSC) online archive.  The enhanced data products (EDP) are not free of artifacts.  Specifically the EDP have more bad pixels than the same or similar data reduced by the IRS disks team \citep{watson09} which tracked and corrected so called "rogue pixels" over the lifetime of the IRS cryogenic mission.  The advantage of using the EDP is that data for all programs are reduced in the same way, facilitating direct comparison of our sample to other programs.  Table XX lists the properties of the IRS spectra in our sample, and select spectra from other programs.  
+		\subsubsection{	SED slopes (smoothed data)}
+We smoothed the IRS data for presentation in the SED plots shown in Section xx.  We boxcar-smoothed the data with a kernel between x and 2x pixels depending on how noisy the data were.  In cases with a lot of hot-pixels we first median smoothed with a x pixel kernel, then box-car smoothed with a 2x pixel kernel.  
+		\subsubsection{	Peak up}
+We acquired IRS peak up photometry in lieu of IRS LL spectra for the faint sources x, x, x, x,x.  IRS peak-up photometry has a 16 and 22 \mum channel; filter profiles are available at xx.  The IRS peak-up camera is somewhat non-standard, so we will explain our reduction method in some more detail.  We downloaded the BCD data products from the \emph{SSC} archive, mosaicked the frames with MOPEX \cite{x}, and performed PSF fitting photometry with APEX \cite{x}.  We checked the APEX data by performing standard aperture photometry on the mosaicked MOPEX data with aperture, gap, and sky radii, x, x, x respectively.  The center positions were calculated by centroiding on the source before extracting aperture photometry.  For source X we used a sky aperture of X to avoid a nearby source x arcseconds NSEW.  We estimated the errors by automatically performing this aperture photometry on 10 thousand Monte Carlo simulated images constructed by adding gaussian distributed noise with amplitude determined by the 2 dimensional error frames from MOPEX.
+	\subsection{	c2d} %, c2deep
+We obtained archival Spitzer IRAC photometry from the most recent Cores to Disks \citep[c2d]{evans03} data release.  We use the IRAC magnitudes from \citet{close07} for each component of the two wide binary sources, AKCJ11 A \& B and AKCJ16 A \& B.  Sources 1, 5, 11, 14, 17, and 18 were observed with IRS peak up (PU) photometry at 16 and 24 $\mu$m.  For source 11, the binary components are near the threshold of detection in the IRS PU arrays.  The angular separation 1.9'' \citep{close07} is less than the FWHM diffraction limits of 3.8" and 5.3" for blue and red respectively.  MIPS24 photometry is available for all sources in c2d.
+%put in a note here about c2deep if we are going to use it.
+	\subsection{	2MASS/ISPI/MOSAIC choice and conversion}
+Near-IR $JHK$ photometry is from the 2MASS point source catalog (PSC) when available. For the four sources that were not detected in 2MASS, rereduced ISPI \citep{vanderbliek04} near-IR photometry from \citet[hereafter AKCJ06]{allers06} was converted from the MKO photmetric system to 2MASS by convolving filter curves with the observed near-IR spectroscopy, and applying the correction to ISPI.  The $I$-band magnitudes are all from AKCJ06.  The known wide binaries have composite photometry in 2MASS, which was resolved by \citet{close07} and \citet{luhman07}.  We used the $\delta$mag from \citet{close07} with the composite 2MASS magnitude to keep our near-IR photometry on the same system.  The resolved I band photometry for the binary sources is from resolved MOSAIC I photometry not published in AKCJ06.
+	\subsection{	WISE accuracy}
+The Wide-Field Survey Explorer \citep{wright10} mapped the entire sky at 3.4, 4.6, 12, and 22 \um, with angular resolutions 6.1", 6.4", 6.5", and 12" respectively.  17/18 of the AKCJ2006 sources were matched in the WISE preliminary data release point source catalog (accessed Dec 16, 2011) in WISE bands 1 and 2, all with separations of $<1.4"$ between AKCJ2006 astrometry (which was from 2MASS or ISPI) and WISE astrometry with a median of 0.48".  Our search for J125758.68-770118.6 also picked up a nearby source J125756.74-770113.4 which is 8.9" separation from J125758.68-770118.6.  Most of our sources were not detected in WISE bands 3 and 4.  CHA1305$-$7739 (AKCJ\#5) was not detected in any WISE band.  The binaries OPH1622-2405AB and OPH1623-2343AB are unresolved in WISE.  The WISE magnitudes for AKCJ06 sources are listed in Table XX.
+
+The WISE data is tyically consistent with the flux levels observed in the comparable IRAC and MIPS bands as demonstrated by the SEDs (Figure XX-XX).  WISE band 3 (12 \um) does not have an analog in the IRAC, MIPS, or IRS peak-up, so this data point is complementary to our program's IRAC data.  The WISE photometry for AKCJ1304$-$7752 in all bands exceeds the estimated flux extrapolated from comparable IRAC, IRS, and MIPS data by a factor of 2.  AKCJ1622$-$2329 WISE measurements show a dearth of flux compared to the comparable $Spitzer$ measurements.  These two sources point to variability in the mid-IR excess.  Morales-Calderon et al. 2011 detected variability in 70\% of the disk-bearing YSOs they studied in the Orion Nebula Cluster with the YSOVAR program.  Their post-cryogenic \emph{Spitzer} mid-IR data is limited to 3.4 and 4.5 $\mu$m IRAC channels.  In their sample of 1123 Class II sources they find that 465 (41\%) have amplitudes $> 0.2$ mag in [3.6] (Table 3 of Morales-Calderon et al. 2011).  Only 5\% demonstrate amplitudes $>0.5$ mag.  Naively extrapolating the results from the YSOVAR study to our sample of 17 disk-bearing YSOs we expect perhaps only one source to demonstrate variability with amplitude $>0.5$ mag.  Indeed, only AKCJ1304$-$7752 shows about a factor of 2 difference in the flux levels across the mid-IR.  This degree of variability raises the question of how to uniformly characterize the mid-IR excess since the IRAC, MIPS, IRS, and WISE observations are not contemporaneous.  Extrapolating from the ONC study, most of our sources (60\%) should have less than 10\% variation in flux; 40\% should have between 10\% and 200\% variation.
+	\subsection{	Herschel}
+%----------------------------------------------------------------
+
+%------------------------------------------------------------
+%Section 3
+%------------------------------------------------------------
+
+\section{	Results}
+	\subsection{	Spectral indices and classification}
+		\subsubsection{	Spectral type}
+\emph{2012 updates spectral type technique}
+In this subsection we describe how we determined spectral type and extinction.  First we visually inspect the spectra to assign a coarse spectral type and estimate the range of spectral types over which candidate indices can be evaluated.  The spectra are consistent with early M- to early L- spectral types.  There are three primary spectral type sensitive indices available in the near-IR for this range.  \citet{slesnick04} defined a J-band and K-band $H_2O$ index which was improved upon in Allers et al. in prep.  Allers et al. 2007 defined an $H_2O$ band in the H-band for spectral types M5-L4.
+
+We first estimate the reddening with $A_V=([J-H]-0.6)/0.1$.  Second, we deredden the spectrum by the estimated Av with the reddening law of XX.  We computed the Allers et al. 2007 $H-$band index, and the Slesnick et al. 2004 $J-$ and $K-$ band indices.  We calculated a spectral type associated with each index from the 3rd order polynomial fits provided in Table X of Allers et al. in prep.  We calculated the mean of the three spectral types.  If the spectral type calculated from the Slesnick et al. 2004 $J-$ band index was M4$-$M5 we did not include the Allers et al. 2007 index-derived type in our mean.  If the spectral type calculated from the Slesnick et al. 2004 $J-$band index was between L2 and L5, we did not include the Slesnick et al. 2004 $K-$ index-derived type in our mean.  Lastly, if the the spectral type derived in either of the Slesnick indices was less than 4, then we visually classified the spectra by comparison to $M-$dwarfs in the SpeX Spectral Atlas \citep{rayner09, cushing05}.  We repeated the first step with an improved estimate for the intrinsic $(J-H)_0$ color: $A_v=([J-H]-[J-H]_0)/0.1$.  The revised $(J-H)_0$ is computed  as a function of spectral type from the median $(J-H)_0$  for M5-L2 young sources based on 2MASS $J-$  and $H-$ band photometry, spectral types, and $A_V$'s for sources from Herczeg09, Kirkpatrick08, Slesnick06 and Bejar09.  We computed the RMS scatter of $(J-H)_0$ about the median, which we take as the uncertainty in the $(J-H)_0$ color.  
+
+We deredden the spectrum with the revised $A_V$, again with the reddening law of XX.  We recalculate the spectral type sensitive indices, spectral types, $(J-H)_0$ and reddening.  We iteratively deredden the spectrum and recompute these indices until the solution for spectral type and $A_V$ converges, which is typically 3 iterations or fewer given the small $A_V$ in our sample, and the weak trend in the $(J-H)_0$ as a function of spectral type.  
+
+We estimate the errors in spectral type and extinction with a Monte Carlo strategy.  We construct 10000 samples of the spectral types plus Gaussian distributed uncertainty with a standard deviation equal to the RMS scatter in the spectral type-index relation from Table X of Allers et al. in prep.  We similarly construct arrays for uncertainty in $(J-H)-(J-H)_0$ with standard deviation equal to errors propagated from $J-$ and $H-$ band photometric errors and the RMS scatter of $(J-H)_0$ about the median value for each spectral type.  The values and errors reported in Table X are the median and standard deviations of the Monte Carlo distributions.
+
+We explored the effect of correlated errors from spectral type and extinction.  Specifically, we performed the iterative calculation of $A_V$ and Spectral type in the manner described above, but we artificially overcorrected and undercorrected the reddening by 1 $\sigma$ of the uncertainty in $A_v$ for a subsample of our sources.  Then we ran the Monte Carlo.  For example, CHA1257$-$7701 has an $A_V$ uncertainty of 1.4, which produced a range of spectral types equal to 0.9 subtypes for the A07 index, and 0.6 subtypes for both of the Slesnick et al. 2004 indices.
+%Reference the Allers et al. 2009 Taurus sources.
+
+		\subsubsection{	Extinction}
+We deredden spectra with the $R_V=3.1$ reddening curve of Fitzpatrick 1999.  This is the same extinction law used to derive the filter-specific reddening relations in the Asiago Database of Photometric Systems.  McClure 2009 updated the 5-25\mum extinction curve to include $A_V$ dependent morphologies.  We stitch the Fitzpatrick 1999 reddening law to the McClure 2009 law in the following way.
+
+		\subsubsection{	Gravity sensitive features}
+\emph{\textcolor{red}{Outliers in the Na$I$ plot, what's the deal, is it just noisy?}}
+
+\citet{allers07} constructed a gravity sensitive $\lambda=1.14$ \mum  \ion{Na}{1} index in $R\sim300$ spectra.  With improved resolution we can now construct the $\lambda=1.14$ \mum  \ion{Na}{1} pseudo-equivalent width, which is qualified by pseudo since the continuum is not resolved in heavily line blanketed spectra of cool stars at the spectral resolution of our SpeX and GNIRS observations.  We henceforth ignore the prefix for brevity.  The youth of our sample is firm given that they all demonstrate mid-IR excesses indicative of short-lived primordial disks.  Accordingly we expect our sources to demonstrate low gravity photospheres characteristic of young stars and brown dwarfs that have not yet contracted to the main sequence or to their electron degenerate fate.  In principle we should be able to distinguish the relative ages of sources from different young clusters \citep{luhman07}.  Figure \# shows the \ion{Na}{1} EW as a function of spectral type for objects in our sample, compared with dwarfs and giants from \citet{cushing05} and \citet{rayner09}, young field standards from \#, and young cluster members from \#, \#, \#.  We adopted the definitions of EW and error from \citep[c.f. eq. 4 and 5]{cushing05}, fitting a first order polynomial to the pseudo-continuum surrounding the feature of interest.  We similarly estimated the uncertainty in the feature (per wavelength interval) as the RMS error about the continuum line.  We did not account for errors in the continuum fit.  We examined other gravity sensitive indices and EWs, following the technique of Allers et al. (2013).  Specifically, we compute the...
+
+		\subsubsection{	H/ H2 / HeI 1.0830 etc.}
+\emph{\textcolor{red}{Can we say anything about the spectral profiles of the emission lines (cf. source 04 and 02).  How good is the wavelength calibration?  Can we say that the observed wavelength shifts (a few pixels, figure out the velocity shift) are real?}}
+		
+We detected ${\rm Pa\beta}$ in 7/19 sources, along with \# detections of the accretion diagnostic lines ${\rm Br\gamma}$, ${\rm Pa\delta}$, ${\rm Pa\gamma}$, and \ions{He}{1} $\,(\lambda=1.083 \, $\mum), with EWs and errors listed in Table \ref{tab:EW_vals}, in which our convention is to indicate emission by negative values of EW.  
+%Figures \ref{fig: PaD}, \ref{fig: PaG}, \ref{fig: PaB}, \ref{fig: HeI}, and \ref{fig: BrG} %
+The Figures X-XX plot the equivalent widths of the emission lines as a function of spectral type, for our sample and identically reduced dwarfs and giants from the \emph{SpeX Spectral Atlas} \citep{cushing05, rayner09}.  The \emph{Atlas} dwarfs and giants demonstrate weak trends of emission or absorption with EWs of ${\rm \sim 2\,}$Angstroms over M0$-$L5, with ${\rm \sim 1-2\,}$Angstroms scatter.  For example in Figure \emph{Ref fig: PaB}, the giants are systematically higher than the dwarfs, respectively bearing EWs of 
+%${\rm Pa\beta}$ $\sim 1 \text{ and } 0.5 \,$Angstroms from M2$-$M7 and $\sim 0 \text{ and } -0.5 \,$Angstroms from M7$-$L0.  One M8.5 giant from the SpeX Spectral Atlas (ID \#\#) has strong emission of $Pa\beta \sim -4 \,$Angstroms.  
+
+The young objects demonstrate intrinsic scatter in their line strengths, as shown in Figures \ref{fig: PaD}$-$\ref{fig: BrG}, where we have labelled sources with their catalog number from Table \ref{tab: EWs}.  The EWs are calculated in the same way as the neutral metal lines, with our choice of continuum and feature indices listed in table \ref{tab:EW_limits}.  The feature limits correspond to $\pm 300$ km/s about the line center.  Visual inspection of the spectra (Figure REF) surrounding the feature limits reveals systematic line center blue shifts of about 200 km/s in sources 1, 4, and 2. Source 4 and 2 bear line profiles resembling inverse \emph{P Cygni} lines, but the low quality and resolution of the GNIRS spectra do not offer enough confidence to report detection of line shapes.	
+
+\subsection{	Comparison to previous indices}
+Several sources have optical spectral types from previous studies, summarized here.  Source numbers 1, 5, and 17 were studied by \citet{rayjay06}, who estimate earlier types for these sources by 2.5, 1.0, and 2.5 subtypes respectively.  \citet{alcala06} studied source number 2, deriving a spectral type of M7$\pm$2 which is consistent with our determination of M6$\pm$1.  \citet{allen07} comapred \ion{K}{1},\ion{Na}{1}, and FeH optical features in LUP 1541$-$3345 to those of a 1 Myr old comparison standard to conclude that LUP 1541$-$3345 is a more evolved pre-main-sequence star unrelated to the current epoch of star formation in Lupus.  They derive an optical spectral type of M5.75$\pm$0.25 which differs from the present near-IR estimate of M7$\pm$1.
+	\subsection{	Supplementary data- young field objects, field dwarfs, giants}
+	\subsection{	Mid-IR multiple epochs}
+	\subsection{	Broadband SED}
+		\subsubsection{	Technique for putting SED together}
+We constructed 0.8$-$24 \mum SEDs for all our sources, extending up to 70 or 160 \mum where $Herschel$ data were available \citep{harvey12}.  The observed fluxes were dereddened by the wavelength dependent reddening law of \citep{fitzpatrick99}, using the A$_V$ listed in Table XX.  We assigned the measured $I-$, $J-$, $H-$, and $K-$ band fluxes to the central wavelengths listed in the Asiago Database of Photometric Systems, and assuming zero points from the Vega fluxes listed in Table 7.5 of Allen's Astrophysical Quantities \citep{cox00}.  No color correction was made, which causes a relative wavelength shift of \#\# for a black body SED in the \# band.  The IRAC bands 1 to 4 and MIPS 24 \mum fluxes are from the most recent c2d data release (DR4).  We made no flux corrections, which are less than 1\% for a Rayleigh-Jeans flux density distribution \textcolor{red}{(what is the correction for sources with disk excess?  still negligible?)}.  I computed $\nu F_\nu$ by using the approximate isophotal wavelength centers 3.4, 4.6, 12.0, 22.0 \mum.  I corrected for the miniscule extinction with the reddening law of Fitzpatrick (1999).
+
+Near-IR spectra shown in the SEDs were vertically scaled in the following way.  We normalized the spectrum by the integrated product of observed spectrum and facility reported filter curves for the 2MASS $J-$, $H-$, and $K-$ bands, then multiplied by the observed flux in the respective bands.  The observed spectra were corrected for atmospheric absorption, so wavelength dependent atmospheric absorption could minutely compress the vertical scaling of our near-IR spectra.  This minute vertical shift from corrected atmospheric absorption is 8.7\% in $J-$ band, 3.7\% in $H-$ band, and 8.8\% in $K-$ band.  Lastly we dereddened the spectra by the wavelength dependent A$_v$ reported in Table XX using the \citep{fitzpatrick99} reddening law.  We used the same method for vertically scaling the IRS spectra, integrating instead over the IRAC4 and MIPS filter curves for SL and LL modules respectively.  \textcolor{red}{FIX: currently we are dereddening first and then integrating under the filter curve, which is in the wrong order of operations.  It's a small effect because the extinction in the mid-IR is miniscule, but still it is systematic and should be done right.}
+
+		\subsubsection{	Accuracy}
+		\subsubsection{	Photosphere}
+		
+Our goal is to disentangle the relative contributions to the near-IR and mid-IR flux.  The contributors are stellar photosphere, reprocessed disk emission, accretion flux, and scattering from disk extinction.  The underlying photosphere of late type young substellar objects is poorly approximated by a black body, do we construct the intrinsic colors of non-binary dwarfs \citep{patten06} of spectral types M2-L2.  Specifically we compute a near-IR $-$ mid-IR color in the following way.  It was unclear which near-IR band to select- the K band may exhibit non-negligible excess emission \citep{muench00}, from a circumstellar disk, whereas the J-H photospheres of young substellar objects may be redder than their older field dwarf counterparts \citep{kirkpatrick08}.  Ideally one would like to use young objects for comparison but there is a dearth of available data on diskless young objects.  Therefore we opt to use field dwarfs for which a wealth of mid-IR data exist (dwarfarchives.org).
+
+IRS spectra of field dwarfs of matching spectral type were employed as photospheric templates \citep{cushing06}. We scaled the spectra by dividing the flux by the the flux in the 2MASS J- or K- band in the following way.  The $J$ or $K$ $-$ $IRAC3$ or $J$ or $K$ $-$ $IRAC4$ color is determined from a fit of non-binary regular dwarfs from \citet{patten06}, and the IRS spectrum is convolved with the IRAC3 or IRAC4 band to appropriately scale the IRS spectrum. 
+		\subsubsection{	Derived quantities}
+\emph{\textcolor{red}{Simple scaled down physics for these low mass objects, like in the Ercolano or Kessler-Silacci model, estimating the emission zone region, scaling laws.}}
+\emph{\textcolor{red}{Dereddened version of figure 15, also put on the Taurus median, Chamaeleon median, Lupus, Up Sco median, etc, etc, etc.}}
+			%Power laws
+			%Multiple black bodies
+			%Photosphere subtracted Tbol
+			%Break-off point from photosphere
+	\subsection{10 micron feature}
+		\subsubsection{Characterisation- peak over continuum}
+% The Av must be wavelength dependent around the crystalline feature.  (see Pontopiddan; Knez, for ice features towards dust clouds)		
+\emph{\textcolor{red}{Get the uncertainty on the strength/shape of 10\mum feature.  Revisit the comparison to literature data.  Can we reproduce the published results?  What's the deal?  Make a plot of our systematic error.}}
+\emph{\textcolor{red}{Effect of artefacts in the IRS spectra.}}
+\emph{\textcolor{red}{Fix the 10 \mum figures $y-$axis title- normalized $F_\nu$}}
+
+		\subsubsection{Stack faint sources}		
+
+%----------------------------------------------------------------
+
+
+
+%------------------------------------------------------------
+%Section 4
+%------------------------------------------------------------
+
+\section{	Discussion}
+	\subsection{	Spectral type Ð Teff relation}
+We used data from the literature to determine a SpT-Teff relationship for young low mass objects.  \citet{luhman03} relates the spectral type of dwarfs, giants, and young objects for types M1-M9.  To extend this relationship we compared the SpT-Teff trend for field dwarfs with SpT later than M9 from \citet{golimowski04} to our linear extrapolation of the young object SpT-Teff relation.  A first degree polynomial yielded a standard deviation of the residuals of 50K, which is small compared to the typical errors of 1 subtype in the spectral types that correspond to $\sim$150K.  A first degree polynomial extrapolation appeared to agree with the ultracool field dwarf relationship better than higher order polynomials out to a spectral type of $\sim$L4, which exceeds the latest spectral type in our sample, L2.5.
+
+	\subsection{	Bolometric correction}
+	\emph{\textcolor{red}{TODO: propagate the uncertainty in reddening into the uncertainty in luminosity.}}
+To compute the luminosities of our sources, we apply a bolometric correction (BC$_J$) to their dereddened $J$-band magnitudes.  We converted BC$_K$ to BC$_J$ for M1--L3 field dwarfs in \citep{golimowski04} using $K$-band (MKO system) photometry reported therein and $J$-band photometry from the 2MASS PSC.  A 2nd order polynomial fit to spectral type vs. BC$_J$ gives the following relation\footnote{SpT is the numerical translation of SpT: M1--M9=1--9 and L0--L3=10--13} : $BC_J=1.60 + 0.10 \times SpT - 0.007 \times SpT^2$ with small ($\sim$0.08 mag) dispersion. 
+
+\subsection{Multiplicity}
+\subsubsection{Frequency, separation, uncertainty}
+It is likely that there are sources with unresolved companions in our sample.  Similar mass companions can double the derived luminosity of the source over the actual luminosity of the individual components.  Close companions of any type will likely cause external effects on disks\citep{kraus12}.  \citet{ratzka05} found a multiplicity fraction of 29.1\% $\pm$ 4.3\% for their total sample of 158 young stellar objects in Ophiuchus, on angular separations of 0.13 $-$ to 6.1 \emph{arcsec}.  Our $I-$ band imaging resolution $\sim$1 \emph{arcsec} is $\sim$120 AU at the distance of Ophiuchus.  The Ratzka sample's $K=10.5$ magnitude cutoff samples higher primary masses than our sample.  \citet{kraus12} have studied how binary fraction depends on primary mass and separation using 513 young VLMS/BDs in Taurus, USco, and ChaI.  Their Bayesian analysis implies binary frequency decreases with primary mass, from 80$-$100\% at 0.3-0.5 $M_\sun$ to 55-100\% at 0.07$-$0.15 $M_\sun$.  Their study has relatively little constraint on brown dwarf primaries $<0.07$ $M_\sun$, but tentatively the binary fraction and separation continue to decrease based on their non-detection of binary brown dwarfs (\textcolor{red}{what about the wide binary BDs?}).  Their results on 0.15 $M_\sun$ encompasses most of the model derived masses of the sources in our study; in this mass range the authors report a Bayesian analysis derived mean log separation of 2 AU which is much smaller than our spatial resolution.  Naively, the \citet{kraus12} Bayesian analysis suggests that somewhere between \#\# and \#\# of the sources in our sample are unresolved binaries.
+\subsubsection{Effect on derived properties of sample}
+Unresolved binaries will impact the interpretation of the mid-IR excess observed in our sample.  Resolved millimeter observations of multiple and single systems \citep{harris12} indicate that binaries play an important external role on disk evolution, as demonstrated in the study's relative dearth of millimeter detections around stars in multiple systems.
+%Note from Dan:  What would a multiple look like if we treated as a single.  What damage does this do?  What do other studies do?
+We are sensitive to wide binaries and in fact detect some.  We select for disks and close binaries probably don't have them, so probably our binary fraction is lower and we will treat all sources as if they are single but note the effect summarized in \citep{2011ApJ...731....8K, kraus12}.
+%More things to add for multiplicity section: see field references in Kraus & Hillenbrand 2012: Bouy 2003, Burgasser+2003, etc.  This is multiplicity in the field
+%Look at and reference the work of Trent Dupuy and Beth Biller and Katelyn
+%Reference the Kraus and Hillenbrand 2012 and the Kraus, Ireland, and others paper on the effect of binarity on disk evolution paper.  
+\subsubsection{Formation ideas and multiplicity}
+
+	\subsection{	Gravity and bolometric correction- H-band shape vs. sodium line}
+	\subsection{	Relative gravity / gravity spread / relative age}
+\emph{\textcolor{red}{Address the claims about Source 17-- is this a cloud member or outlier (cf. Allen et al. 2007)}}
+%More generally- address the distance uncertainty of Oph sample with USco; also Cha or Lup with field or other clouds, etc.  Calculate the surface density and likelihood (consider using that galactic model published by the collaborator of Burgasser).  
+	\subsection{	Mass caveat}
+	\subsection{	Model Tracks and model colors}
+\textcolor{red}{Revised Masses and Radii from this work.  Show the details.}
+Masses are derived by comparison to theoretical evolutionary tracks of young, low mass objects \citep{chabrier00, baraffe98, baraffe03}.  In part, these models relate the four parameters mass, age, luminosity, and effective temperature.  Previous work on the current sample (AKCJ06) employed an estimate of the age of the clusters and the observed luminosity to calculate the the effective temperature and mass.  This work offers an independent determination of the effective temperatures based on their observed near-IR photospheres coupled with the SpT-$T_{eff}$ relationships described above.  Using these effective temperatures and our revised luminosities, we estimated the masses and ages of the objects.
+
+	\subsection{	Accretion rates / H2 outflows}
+\emph{\textcolor{red}{H$_2$ shock physics theory}}
+\emph{\textcolor{red}{Interpretation of the He$I$ 1.083 \mum lines, and other accretion lines, correlation with disk properties- KA08 as a special case.}}
+\emph{\textcolor{red}{Which masses/radii am I using for the $\dot M$ vs M plot?  Make sure they are the revised M's from this work.}}
+\emph{\textcolor{red}{Get the $x-$ and $y-$ axis titles to be kosher- sun symbols, $\dot M$, brackets, parentheses}}
+
+Studies of accretion in young brown dwarfs  \citep{gatti06, natta04, rigliaco11, herczeg09, mohanty05}, have revealed tiny mass accretion rates ($ -13 \lesssim \log{\frac{\dot{M}}{M_{\sun}\,yr^{-1}}} \lesssim -11$), extending the observed trend of mass accretion rate with stellar mass, $\dot{M} \propto M_{*}^{2}$ \citep{rigliaco11_uband, natta04, mohanty05, gatti08}.  \citet{mayne10} simulated the properties of discs around accreting brown dwarfs, noting that strong accretors will differ enough in their colors to avoid selection in surveys based only on near-IR colors, and therefore the $\dot{M} \propto M_{*}^{2}$ may be a selection effect. %see comment from Dan, address this issue more....  
+
+  ${\rm Pa\beta}$ is the strongest accretion diagnostic available in the near-IR bands \citep{gatti06}, and can be used to estimate the accretion luminosity \citep[c.f. their equation 5]{natta04}, and mass accretion rate:
+\begin{equation} 
+{\rm \log} L_{ac} = 1.36 (\pm 0.2) \times {\rm \log} L(Pa\beta) + 4.00 (\pm 0.2) \\
+\dot{M} = \frac{L_{ac}R_{*}}{GM_{*}}
+\end{equation}
+
+Table \ref{tab: Mdot} lists the derived mass accretion rates when the EW($Pa\beta$) is detected in emission with $S/N > 3$, or when the EW($Pa\beta$) and EW($Br\gamma$) are both detected in emission with $S/N > 2$.  When $Pa\beta$ is not detected, we list the $3\sigma$ upper limit, and propagate the $3\sigma$ value through the calculations assuming no error in any other step of the calculation.
+	\subsection{	Variability in the mid-IR/ comparison to YSOs}
+	\subsection{	SED morphology in the context of radiative transfer }
+	%Put in the discussion of L_{d}/L_{*} here.
+Motivated by the observed dearth of flared disks \citep{apai05} we calculated the mid-IR spectral slope, $\alpha =\frac{d \log{\lambda F_{\lambda}}}{d \log{\lambda}}$.  A geometrically thin, optically thick disk is expected to have $\alpha=-4/3$; flaring tends to increase $\alpha$, and dust settling and removal yields slopes tending to those observed in diskless field dwarfs.  The SED slope is estimated by fitting a line to the IRS SL module in regions where solid state dust emission features are absent.  These regions were adopted from values used by \citep{watson09} to calculate the continuum.  We also calculated the slope independently using the Spitzer IRAC and MIPS photometry, and the IRS Peak Up photometry when available.  The intersection of the IRAC fitted line was used to estimate $\lambda_{turnoff}$, the wavelength of departure from the stellar photosphere to the disk photosphere.  For flat disks the slopes and turnoff wavelengths derived from photometry and spectroscopy agree fairly well.  For the few flared disks, or disks with large turn off wavelengths, the spectra yielded better looking fits.  
+		\subsubsection{	Quantitative estimates of flux from Rsub}
+		\subsubsection{	Dust at Rsub / inner holes compared to uncertainties}
+		\subsubsection{	Comparison to SED models}
+		\citet{carpenter06} used \emph{Spitzer} IRAC photometry to show that there was mass-dependent circumstellar disk evolution, as demonstrated by the decreasing mid-IR excess in the SEDs from B$-$M stars in Upper Scorpius.  The statistical difference between these populations was further detailed in \citet{szucs10}.  The overall understanding of brown dwarf disks to date is that they show less mid-IR excess, so the grains must be bigger and/or have settled to the midplane.  Since the central object temperatures and luminosities are so much lower than the high mass comparison samples (i.e. solar mass stars), differences in the incident spectrum must be causing these effects, through a combination of shrinking the 10 \mum emission zone \citep{kesslersil07}, and possibly different timescales and turbulence in the emission zones.  
+	\subsection{	Crystalline feature and dust properties}
+		\subsubsection{compare to previous results}
+		\subsubsection{How do things change with luminosity- physical interpretation}
+		\subsubsection{How do things change with SED properties}		
+%----------------------------------------------------------------
+
+
+%------------------------------------------------------------
+%Summary
+%------------------------------------------------------------
+
+\section{Conclusions}
+Here we conclude...
+%----------------------------------------------------------------
+
+\acknowledgments
+This research has benefited from the M, L, and T dwarf compendium housed at DwarfArchives.org and maintained by Chris Gelino, Davy Kirkpatrick, and Adam Burgasser as well as from the SpeX Prism Spectral Libraries, maintained by Adam Burgasser at http://www.browndwarfs.org/spexprism.  
+
+
+\appendix
+\section{Notes on individual sources}
+Source 1 is also reported in...
+
+%------------------------------------------------------------
+%Bibliography
+%------------------------------------------------------------
+\bibliographystyle{apj}
+\bibliography{ms}
+
+\end{document}
