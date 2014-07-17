@@ -18,8 +18,8 @@ at.fieldtypes[86]=4
 at.fieldtypes[89]=4
 at.fieldtypes[91]=4
 
-fn='ybd-vlms-db_jan2013.txt'
-fn='ybd-vlms-db_nov2012.txt' 
+;fn='ybd-vlms-db_jan2013.txt' ;This file is broken
+fn='ybd-vlms-db_nov2012.txt' ;This file works fine!
 d=read_ascii(fn, template=at)
 
 n_els=n_elements(d.field001)
